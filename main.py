@@ -40,6 +40,14 @@ def add_task(task: TaskCreate):
     return new_task
 
 
+@app.get("/")
+def root():
+    return {
+        "message": "Task Board FastAPI Backend is running",
+        "docs": "/docs",
+        "tasks": "/tasks"
+    }
+
 # List all tasks
 @app.get("/tasks", response_model=List[Task])
 def list_tasks():
